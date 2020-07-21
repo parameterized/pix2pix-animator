@@ -2,6 +2,8 @@
 
 Browser-based animation program that uses AI to try to generate realistic images from sketches
 
+![](readme-assets/pix2pix-animator.gif)
+
 Uses models from https://github.com/zaidalyafeai/zaidalyafeai.github.io/tree/master/pix2pix
 
 ## Running
