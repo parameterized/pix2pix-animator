@@ -1,0 +1,33 @@
+{
+  "name": "pix2pix-animator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "dev-server": "webpack-dev-server",
+    "build": "webpack --env.production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parameterized/pix2pix-animator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parameterized/pix2pix-animator/issues"
+  },
+  "homepage": "https://github.com/parameterized/pix2pix-animator#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^2.0.1",
+    "core-js": "^3.6.5"
+  }
+}
