@@ -1,12 +1,12 @@
 
 import * as tf from '@tensorflow/tfjs';
+import { saveAs } from 'file-saver';
 import { targetWidth, targetHeight, viewport } from './index.js';
 import { Frame } from './frame.js';
 import { Timeline } from './timeline.js';
 import { UI } from './ui.js';
 import { TestNorm } from './testNorm.js';
 import { utils } from './utils.js';
-import { exp } from '@tensorflow/tfjs';
 
 export class Animator {
     brush = 'draw';
@@ -35,15 +35,13 @@ export class Animator {
 
         let b = this.outputBox;
         this.ui.addButton({
-            text: 'Export to GIF', box: [b[0] + b[2] - 200 - 10, 25, 200, 50], action: () => {
+            text: 'Download GIF', box: [b[0] + b[2] - 220 - 10, 25, 220, 50], action: () => {
                 let gif = new GIF({ workerScript: 'lib/gif.worker.js' });
                 for (let f of this.frames) {
                     gif.addFrame(f.output.canvas, { delay: 1000 / this.fps });
                 }
-                let exportTab = window.open('', '_blank')
-                exportTab.document.write('Generating GIF...');
                 gif.on('finished', blob => {
-                    exportTab.location.href = URL.createObjectURL(blob);
+                    saveAs(blob, 'animation.gif');
                 });
                 gif.render();
             }
