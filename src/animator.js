@@ -6,6 +6,7 @@ import { Timeline } from './timeline.js';
 import { UI } from './ui.js';
 import { TestNorm } from './testNorm.js';
 import { utils } from './utils.js';
+import { exp } from '@tensorflow/tfjs';
 
 export class Animator {
     brush = 'draw';
@@ -39,8 +40,10 @@ export class Animator {
                 for (let f of this.frames) {
                     gif.addFrame(f.output.canvas, { delay: 1000 / this.fps });
                 }
+                let exportTab = window.open('', '_blank')
+                exportTab.document.write('Generating GIF...');
                 gif.on('finished', blob => {
-                    window.open(URL.createObjectURL(blob));
+                    exportTab.location.href = URL.createObjectURL(blob);
                 });
                 gif.render();
             }
